@@ -1,0 +1,1 @@
+# nextjs14-ecommerce-kinde-upstash-prisma-stripe
