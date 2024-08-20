@@ -65,7 +65,9 @@ async function DashboardLayout({ children }: IProps) {
                     </DropdownMenuContent>
                 </DropdownMenu>
             </header>
-            {children}
+            <main className='my-5'>
+                {children}
+            </main>
         </div>
     )
 }
