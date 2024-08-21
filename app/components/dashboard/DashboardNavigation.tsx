@@ -1,4 +1,7 @@
+"use client"
+import { cn } from '@/lib/utils'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import React from 'react'
  
 
@@ -14,11 +17,11 @@ const links: INavLink[]= [
     },
     {
         name: "Orders",
-        href: "dashboard/orders"
+        href: "/dashboard/orders"
     },
     {
         name: "Products",
-        href: "dashboard/products"
+        href: "/dashboard/products"
     },  
     {
         name: "Categories",
@@ -27,11 +30,16 @@ const links: INavLink[]= [
 ]
 
 function DashboardNavigation() {
+    const pathname = usePathname();
   return (
     <>
     {
         links.map((link: INavLink) => (
-            <Link key={link.href} href={link.href}>
+            <Link key={link.href} href={link.href} className={cn(
+                link.href === pathname
+                ? "text-foreground" 
+                : "text-muted-foreground hover:text-foreground"
+            )}>
                 {link.name}
             </Link>
         ))
