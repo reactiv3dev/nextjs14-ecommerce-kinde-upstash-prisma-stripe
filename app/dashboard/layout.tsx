@@ -17,7 +17,7 @@ async function DashboardLayout({ children }: IProps) {
     const { getUser, isAuthenticated } = getKindeServerSession();
     const user = await getUser();
 
-    console.log(user);
+ 
     
     if(!isAuthenticated){
         return redirect('/')

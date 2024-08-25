@@ -13,6 +13,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+ 
+
 model User{
   id String @id @unique
   email String
@@ -20,5 +22,32 @@ model User{
   lastName  String
   profileImage String
 
+  createdAt DateTime @default(now())
+}
+
+
+enum ProductStatus {
+  draft
+  published
+  archived
+}
+
+enum Category {
+  man 
+  women
+  kids
+}
+
+model Product {
+  id String @id @default(uuid())
+  name String
+  description String
+  status ProductStatus @default(draft)
+  price Int
+  images String[]
+  category Category
+  isFeatured Boolean @default(false)
+
+  updatedAt DateTime @updatedAt
   createdAt DateTime @default(now())
 }
